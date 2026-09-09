@@ -15,7 +15,7 @@ function guestLabel(b) {
   const adults=b.guests.reduce((n,g)=>n+g.adults,0), children=b.guests.reduce((n,g)=>n+g.children,0);
   return `${adults} ${plural(adults,['взрослый','взрослых','взрослых'])}${children?`, детей: ${children}`:''}${b.guests.length>1?' · 2 номера':''}`;
 }
-const asset = name => `./assets/${name}`;
+const asset = name => `./${name}`;
 const icon = (name,cls='') => `<img class="icon ${cls}" src="${asset(name)}" alt="" draggable="false">`;
 const closeIcon=()=>icon('context0-imgExit.svg');
 function save(){try{sessionStorage.setItem(STORAGE,JSON.stringify(state));}catch{}}
