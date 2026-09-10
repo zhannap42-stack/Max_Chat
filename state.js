@@ -51,7 +51,7 @@ export function transition(state, event, now = Date.now()) {
       message(key,'guest'); s.draft=''; s.question=null;
       if(key==='booking') s.pending=[{key:'booking',due:now+700}];
       if(key==='breakfast') s.pending=[{key:'breakfast',due:now+700}];
-      if(key==='early') s.pending=[{key:'waiting',due:now+700},{key:'connected',due:now+2700},{key:'manager',due:now+3900}];
+      if(key==='early') s.pending=[{key:'waiting',due:now+700},{key:'connected',due:now+2700},{key:'manager',due:now+62700}];
       break;
     }
     case 'TICK': {
@@ -60,6 +60,7 @@ export function transition(state, event, now = Date.now()) {
         const next=s.pending.shift(); message(next.key,next.key==='manager'?'manager':next.key==='connected'?'notice':'bot');
         if(next.key==='breakfast') s.question='early';
         if(next.key==='manager') s.managerDone=true;
+        if(next.key==='connected' && s.pending[0]?.key==='manager') s.pending[0].due=now+60000;
         if(s.pending[0] && s.pending[0].due<=now) s.pending[0].due=now+1200;
       }
       break;
