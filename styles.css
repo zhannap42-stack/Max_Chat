@@ -7,3 +7,15 @@
 .welcome::before,.messages::before{display:none}
 .composer-attachment,.composer-mic{flex:none;width:26px;height:36px;background-image:url('./context2-imgImage3.png');background-size:360px 800px;background-repeat:no-repeat}
 .composer-attachment{background-position:-282px -742px}.composer-mic{background-position:-324px -742px}
+
+/* Figma 827:5505 and 870:3818 */
+.mini-scroll,.dialog{font-family:Arial,sans-serif}
+.promo-row{min-height:48px;margin-bottom:12px;color:rgba(7,91,186,.7)}
+.promo-row .promo{gap:6px;line-height:14px}.promo-lock{width:36px;height:36px;border-radius:50%;background:#ffffffb3;justify-content:center}.promo-lock .icon{width:18px;height:18px}
+.promo-row .locale{gap:3px}.locale>span,.locale>b{width:36px;height:36px;background:#ffffff4d;display:grid;place-items:center;border-radius:3px}.locale .icon{width:18px;height:14px}.locale>b{font-size:10.8px;color:rgba(7,91,186,.73)}.login>.icon{width:36px;height:36px}
+.select{border-color:rgba(61,61,61,.24);border-radius:3px 3px 0 0;padding:3px 12px;font-size:14px;line-height:20px}.select+.select{border-radius:0 0 3px 3px}.select small{display:block;color:rgba(61,61,61,.5);font-size:12px;line-height:18px}
+.booking-cta{position:relative;display:block;background:rgba(0,122,181,.5);color:#fff;border-radius:5px 5px 15px 15px;font-size:14px;font-weight:500;height:36px;min-height:36px;padding:0 16px;width:min(84%,310px);margin-top:4px}.booking-cta>.icon{position:absolute;top:1px;right:1px;width:14px;height:14px}
+
+.rate-card{padding:20px 20px 24px}.rate-card h2{line-height:24px;margin-bottom:24px}.benefits .icon{width:20px;height:20px}.rate-cards{gap:24px}.selected-room{margin-bottom:16px}.selected-room h2,.selected-room p{font-family:Inter,Arial,sans-serif}.room-content h2{color:#1b5eb2}.rate-footer{padding-top:24px}.rate-footer .primary{font-size:16px;line-height:20px}.mini-header b{position:absolute;left:50%;transform:translateX(-50%)}
+
+.room-content{gap:8px}.room-name{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:32px}.room-name h2{line-height:24px}.room-expand{width:32px;height:32px;flex:none;display:grid;place-items:center;border:1px solid #1b5eb2;border-radius:50%}.room-content>.primary{background:#1b5eb2;font-size:16px;line-height:20px}.gallery-dots{display:flex;gap:12px;align-items:center;justify-content:center;height:20px;background:#0008;letter-spacing:0}.gallery-dots i{width:4px;height:4px;border-radius:50%;background:#ffffff80}.gallery-dots i:first-child{width:8px;height:8px;background:white}.room-card{border:1px solid #c3c8cf}

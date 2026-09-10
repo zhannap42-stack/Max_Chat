@@ -31,13 +31,19 @@ export function roomPrice(state, room) {
   const booking = currentBooking(state);
   return booking.quoted ? Math.round(ROOMS[room].price * nights(booking) / 2 * 100)/100 : ROOMS[room].initialPrice;
 }
+export function nextQuestion(s) {
+  if (!s.started || s.pending.length || s.managerDone) return null;
+  if (s.chat.some(m=>m.key==='breakfast' && m.who==='bot')) return 'early';
+  if (s.branch) return 'breakfast';
+  return 'booking';
+}
 export function transition(state, event, now = Date.now()) {
   const s = structuredClone(state);
   const message = (key, who='bot') => s.chat.push({key,who});
   if (s.completed) return s;
   switch(event.type) {
     case 'START': if (!s.started) { s.started=true; message('greeting'); } break;
-    case 'TYPE': if (!s.pending.length && QUESTIONS[s.question]) s.draft=QUESTIONS[s.question]; break;
+    case 'TYPE': s.question=nextQuestion(s); if (!s.pending.length && QUESTIONS[s.question]) s.draft=QUESTIONS[s.question]; break;
     case 'SEND': {
       if (!s.draft || s.pending.length) break;
       const key=s.question;
@@ -64,7 +70,7 @@ export function transition(state, event, now = Date.now()) {
       s.mini=true; break;
     case 'CLOSE':
       s.mini=false;
-      if(s.step==='rate' && !s.chat.some(m=>m.key==='breakfast') && !s.pending.length) s.question='breakfast';
+      s.question=nextQuestion(s);
       break;
     case 'SELECT_ROOM':
       if(s.mini && ROOMS[event.room]) {s.selected=event.room;s.step='rate';} break;
