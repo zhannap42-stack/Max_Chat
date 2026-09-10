@@ -1,4 +1,4 @@
-import { QUESTIONS, MESSAGES, ROOMS, initialState, transition, currentBooking, roomPrice, nights, addDays, isoDay, nextQuestion } from './state.js?v=5';
+import { QUESTIONS, MESSAGES, ROOMS, initialState, transition, currentBooking, roomPrice, nights, addDays, isoDay, nextQuestion } from './state.js?v=6';
 
 const app = document.querySelector('#app');
 const STORAGE = 'tl-chat-prototype-v3';
